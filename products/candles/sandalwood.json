@@ -1,0 +1,14 @@
+{
+  "id": "candle-sandalwood",
+  "image": "photo1.jpg",
+  "ru": {
+    "title": "Свеча Сандал",
+    "short": "Глубокий древесный аромат",
+    "desc": "Спокойный сандал и амбра — для вечернего отдыха и медитации"
+  },
+  "en": {
+    "title": "Sandalwood Candle",
+    "short": "Deep woody scent",
+    "desc": "Calm sandalwood and amber — for evening relaxation and meditation"
+  }
+}

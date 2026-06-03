@@ -1,0 +1,14 @@
+{
+  "id": "diffuser-vanilla-1",
+  "image": "photo1.jpg",
+  "ru": {
+    "title": "Диффузор Ваниль",
+    "short": "До 60 дней",
+    "desc": "Мягкий аромат для дома"
+  },
+  "en": {
+    "title": "Vanilla Diffuser",
+    "short": "Up to 60 days",
+    "desc": "Soft home fragrance"
+  }
+}

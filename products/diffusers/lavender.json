@@ -1,0 +1,14 @@
+{
+  "id": "diffuser-lavender",
+  "image": "photo1.jpg",
+  "ru": {
+    "title": "Диффузор Лаванда",
+    "short": "Релакс эффект",
+    "desc": "Идеален для сна"
+  },
+  "en": {
+    "title": "Lavender Diffuser",
+    "short": "Relax effect",
+    "desc": "Perfect for sleep"
+  }
+}
