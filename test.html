@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>IrMa Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Alegreya', serif;
+    background: #f3f3f3;
+}
+
+/* ===== HEADER ===== */
+.header {
+    height: 60px;
+    background: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.divider {
+    height: 1px;
+    background: black;
+}
+
+/* ===== HERO SLIDER ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* затемнение */
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+/* контент */
+.slide-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.slide-content h1 {
+    font-size: 40px;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.slide-content button {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* стрелки */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    z-index: 3;
+    padding: 10px;
+    user-select: none;
+}
+
+.arrow.left { left: 20px; }
+.arrow.right { right: 20px; }
+
+/* точки */
+.dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 3;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* ===== CONTENT ===== */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.title-box {
+    background: rgba(255,255,255,0.7);
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.gallery-item-wrapper {
+    width: 200px;
+}
+
+.gallery-item {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption {
+    margin-top: 5px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">IrMa Home</div>
+<div class="divider"></div>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <div class="slides" id="slides">
+        <div class="slide">
+            <img src="banner1.jpg">
+            <div class="slide-content">
+                <h1>Подключай рассылку и лутай деньги на баланс.</h1>
+                <button>Подключить</button>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="banner2.jpg">
+            <div class="slide-content">
+                <h1>Ароматы, создающие уют</h1>
+                <button>Смотреть</button>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="banner3.jpg">
+            <div class="slide-content">
+                <h1>Свечи и диффузоры ручной работы</h1>
+                <button>Каталог</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="arrow left" onclick="prevSlide()">‹</div>
+    <div class="arrow right" onclick="nextSlide()">›</div>
+
+    <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>
+
+<!-- ===== СВЕЧИ ===== -->
+<div class="content">
+    <div class="title-box">Свечи</div>
+    <div class="gallery">
+        <div class="gallery-item-wrapper">
+            <div class="gallery-item"><img src="photo1.jpg"></div>
+            <div class="caption">Свеча 1</div>
+        </div>
+        <div class="gallery-item-wrapper">
+            <div class="gallery-item"><img src="photo2.jpg"></div>
+            <div class="caption">Свеча 2</div>
+        </div>
+        <div class="gallery-item-wrapper">
+            <div class="gallery-item"><img src="photo3.jpg"></div>
+            <div class="caption">Свеча 3</div>
+        </div>
+        <div class="gallery-item-wrapper">
+            <div class="gallery-item"><img src="photo4.jpg"></div>
+            <div class="caption">Свеча 4</div>
+        </div>
+    </div>
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById('slides');
+const dots = document.querySelectorAll('.dot');
+
+function update() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d,i)=>d.classList.toggle('active', i===index));
+}
+
+function nextSlide() {
+    index = (index + 1) % dots.length;
+    update();
+}
+
+function prevSlide() {
+    index = (index - 1 + dots.length) % dots.length;
+    update();
+}
+</script>
+
+</body>
+</html>

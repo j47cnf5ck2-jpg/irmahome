@@ -1,0 +1,24 @@
+{
+  "candles": [
+    "candles/vanilla.json",
+    "candles/lavender.json",
+    "candles/rose.json",
+    "candles/cinnamon.json",
+    "candles/citrus.json",
+    "candles/sandalwood.json",
+    "candles/eucalyptus.json",
+    "candles/honey.json"
+  ],
+  "diffusers": [
+    "diffusers/vanilla-1.json",
+    "diffusers/vanilla-2.json",
+    "diffusers/vanilla-3.json",
+    "diffusers/lavender.json"
+  ],
+  "aromas": [
+    "aromas/vanilla.json"
+  ],
+  "liquids": [
+    "liquids/vanilla.json"
+  ]
+}
