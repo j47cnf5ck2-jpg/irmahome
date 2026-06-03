@@ -1,0 +1,14 @@
+{
+  "id": "liquid-vanilla",
+  "image": "photo1.jpg",
+  "ru": {
+    "title": "Аромо жидкость Ваниль",
+    "short": "Насыщенный аромат",
+    "desc": "Для диффузоров"
+  },
+  "en": {
+    "title": "Vanilla Aroma Liquid",
+    "short": "Rich fragrance",
+    "desc": "For diffusers"
+  }
+}

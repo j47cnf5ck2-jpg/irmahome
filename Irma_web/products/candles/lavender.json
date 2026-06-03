@@ -1,0 +1,14 @@
+{
+  "id": "candle-lavender",
+  "image": "photo1.jpg",
+  "ru": {
+    "title": "Свеча Лаванда",
+    "short": "Расслабляющий аромат",
+    "desc": "Лаванда для сна"
+  },
+  "en": {
+    "title": "Lavender Candle",
+    "short": "Relaxing scent",
+    "desc": "Lavender for better sleep"
+  }
+}

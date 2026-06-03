@@ -1,0 +1,14 @@
+{
+  "id": "aroma-vanilla",
+  "image": "photo1.jpg",
+  "ru": {
+    "title": "Пахучка Ваниль",
+    "short": "Аромат ванили",
+    "desc": "Для авто"
+  },
+  "en": {
+    "title": "Vanilla Air Freshener",
+    "short": "Vanilla scent",
+    "desc": "For car use"
+  }
+}
