@@ -1,0 +1,15 @@
+{
+  "id": "diffuser-vanilla-3",
+  "image": "images/diffusers/vanilla-3.jpg",
+  "price": 1550,
+  "ru": {
+    "title": "Диффузор Ваниль",
+    "short": "До 60 дней",
+    "desc": "Мягкий аромат для дома"
+  },
+  "en": {
+    "title": "Vanilla Diffuser",
+    "short": "Up to 60 days",
+    "desc": "Soft home fragrance"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "diffuser-lavender",
+  "image": "images/diffusers/lavender.jpg",
+  "price": 1480,
+  "ru": {
+    "title": "Диффузор Лаванда",
+    "short": "Релакс эффект",
+    "desc": "Идеален для сна"
+  },
+  "en": {
+    "title": "Lavender Diffuser",
+    "short": "Relax effect",
+    "desc": "Perfect for sleep"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "candle-cinnamon",
+  "image": "images/candles/cinnamon.jpg",
+  "price": 850,
+  "ru": {
+    "title": "Свеча Корица",
+    "short": "Тёплый зимний аромат",
+    "desc": "Пряные ноты корицы и муската — уют в холодные вечера"
+  },
+  "en": {
+    "title": "Cinnamon Candle",
+    "short": "Warm winter scent",
+    "desc": "Spicy cinnamon and nutmeg notes for cozy cold evenings"
+  }
+}

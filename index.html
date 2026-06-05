@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<script>
+history.scrollRestoration = "manual";
+</script>
+
+<title>IrMa Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="header">
+
+    <!-- ЛЕВО -->
+    <div class="menu">
+        <span id="menuLabel">Категории</span>
+        <div class="dropdown">
+            <div onclick="scrollToTop()" data-i18n="home">Главная</div>
+            <div onclick="scrollToSection('candles')" data-i18n="candles">Свечи</div>
+            <div onclick="scrollToSection('diffusers')" data-i18n="diffusers">Диффузоры</div>
+            <div onclick="scrollToSection('aromas')" data-i18n="aromas">Пахучки</div>
+            <div onclick="scrollToSection('liquids')" data-i18n="liquids">Аромо жидкости</div>
+        </div>
+    </div>
+
+    <!-- ЦЕНТР -->
+    <div class="logo">IrMa Home</div>
+
+    <!-- ПРАВО (ЯЗЫКИ) -->
+<div class="lang">
+    <span id="currentLang">RU</span>
+    <div class="dropdown">
+        <div onclick="setLang('ru')">RU</div>
+        <div onclick="setLang('en')">EN</div>
+    </div>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+    <div class="slides" id="slides">
+
+        <div class="slide">
+            <img src="photo1.jpg" alt="IrMa Home" fetchpriority="high" decoding="async">
+            <div class="slide-content">
+                <p class="slide-tag" data-i18n="slide1Tag">IrMa Home</p>
+                <h1 class="slide-title" data-i18n="slide1Title">Ароматы для уютного дома</h1>
+                <p class="slide-text" data-i18n="slide1Text">Свечи и диффузоры ручной работы из натуральных компонентов</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="photo1.jpg" alt="" loading="lazy" decoding="async">
+            <div class="slide-content">
+                <p class="slide-tag" data-i18n="slide2Tag">Коллекция</p>
+                <h1 class="slide-title" data-i18n="slide2Title">Запахи, которые остаются в памяти</h1>
+                <p class="slide-text" data-i18n="slide2Text">Ваниль, лаванда, роза и тёплые пряные ноты для каждой комнаты</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="photo1.jpg" alt="" loading="lazy" decoding="async">
+            <div class="slide-content">
+                <p class="slide-tag" data-i18n="slide3Tag">Свечи</p>
+                <h1 class="slide-title" data-i18n="slide3Title">Соевый воск, чистое пламя</h1>
+                <p class="slide-text" data-i18n="slide3Text">Безопасное горение и насыщенный аромат до последней капли воска</p>
+            </div>
+        </div>
+
+    </div>
+
+    <button type="button" class="hero-arrow hero-arrow-left" onclick="prevSlide()" aria-label="Предыдущий слайд">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <button type="button" class="hero-arrow hero-arrow-right" onclick="nextSlide()" aria-label="Следующий слайд">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+
+    <div class="hero-dots" id="heroDots">
+        <button type="button" class="hero-dot active" data-slide="0" aria-label="Слайд 1"></button>
+        <button type="button" class="hero-dot" data-slide="1" aria-label="Слайд 2"></button>
+        <button type="button" class="hero-dot" data-slide="2" aria-label="Слайд 3"></button>
+    </div>
+</div>
+
+<div class="content">
+
+<div id="candles" class="title-box first-section reveal">Свечи</div>
+<div class="gallery reveal" id="candlesContainer"></div>
+
+<div id="diffusers" class="title-box">Диффузоры</div>
+<div class="gallery" id="diffusersContainer"></div>
+
+<div id="aromas" class="title-box">Пахучки</div>
+<div class="gallery" id="aromasContainer"></div>
+
+<div id="liquids" class="title-box">Аромо жидкости</div>
+<div class="gallery" id="liquidsContainer"></div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeModal()" aria-hidden="true">
+    <div class="modal-card" onclick="event.stopPropagation()" role="dialog" aria-labelledby="modalTitle">
+        <button type="button" class="modal-close" id="modalCloseBtn" onclick="closeModal()" aria-label="Закрыть">&times;</button>
+        <div class="modal-media">
+            <img id="modalImage" alt="">
+        </div>
+        <div class="modal-body">
+            <p class="modal-tag" id="modalShort"></p>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-divider"></div>
+            <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-actions">
+                <p class="modal-price" id="modalPrice"></p>
+                <button type="button" class="modal-order-btn" id="modalOrderBtn" disabled>
+                    <span class="modal-order-text" id="modalOrderText">Заказать</span>
+                    <span class="modal-order-hint" id="modalOrderHint">Скоро</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+© 2026 IrMa Home
+</div>
+
+<script>
+
+// ===== SLIDER =====
+let slideIndex = 0;
+let slideTimer = null;
+const slidesEl = document.getElementById("slides");
+const heroDots = document.querySelectorAll(".hero-dot");
+const heroEl = document.getElementById("hero");
+const SLIDE_COUNT = heroDots.length;
+const SLIDE_INTERVAL = 7000;
+
+function updateSlider() {
+    slidesEl.style.transform = `translate3d(-${slideIndex * 100}%, 0, 0)`;
+    heroDots.forEach((dot, i) => dot.classList.toggle("active", i === slideIndex));
+}
+
+function goToSlide(i) {
+    slideIndex = ((i % SLIDE_COUNT) + SLIDE_COUNT) % SLIDE_COUNT;
+    updateSlider();
+}
+
+function nextSlide() {
+    goToSlide(slideIndex + 1);
+    resetSlideTimer();
+}
+
+function prevSlide() {
+    goToSlide(slideIndex - 1);
+    resetSlideTimer();
+}
+
+function resetSlideTimer() {
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => goToSlide(slideIndex + 1), SLIDE_INTERVAL);
+}
+
+heroDots.forEach(dot => {
+    dot.addEventListener("click", () => {
+        goToSlide(Number(dot.dataset.slide));
+        resetSlideTimer();
+    });
+});
+
+heroEl.addEventListener("mouseenter", () => clearInterval(slideTimer));
+heroEl.addEventListener("mouseleave", resetSlideTimer);
+
+updateSlider();
+resetSlideTimer();
+
+// ===== JSON =====
+const ORDER_ENABLED = false;
+
+let productsRaw = {};
+let uiStrings = {};
+let currentLang = "ru";
+
+const CATEGORIES = ["candles", "diffusers", "aromas", "liquids"];
+const IMAGE_FALLBACK = "images/placeholder.jpg";
+
+function getProductImage(item) {
+    return item.image || IMAGE_FALLBACK;
+}
+
+function applyUiLang(lang) {
+    const t = uiStrings[lang];
+    if (!t) return;
+
+    document.documentElement.lang = lang;
+    document.getElementById("menuLabel").textContent = t.menu;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.textContent = t[key];
+    });
+
+    CATEGORIES.forEach(cat => {
+        document.getElementById(cat).textContent = t[cat];
+    });
+
+    document.getElementById("modalCloseBtn").setAttribute("aria-label", t.close);
+    document.getElementById("modalOrderText").textContent = t.order;
+    document.getElementById("modalOrderHint").textContent = t.orderSoon;
+}
+
+function formatPrice(amount, lang) {
+    const t = uiStrings[lang];
+    if (!t || amount == null) return "";
+    const locale = lang === "ru" ? "ru-RU" : "en-US";
+    return `${Number(amount).toLocaleString(locale)} ${t.currency}`;
+}
+
+function buildTelegramUrl(product, lang) {
+    const t = uiStrings[lang];
+    if (!t?.telegram) return "#";
+    const username = t.telegram.replace(/^@/, "");
+    const message = (t.orderMessage || "")
+        .replace("{title}", product.title)
+        .replace("{price}", product.priceFormatted);
+    return `https://t.me/${username}?text=${encodeURIComponent(message)}`;
+}
+
+function localizeProduct(item, lang) {
+    const t = item[lang];
+    const product = {
+        id: item.id,
+        image: getProductImage(item),
+        title: t.title,
+        short: t.short,
+        desc: t.desc,
+        price: item.price,
+        priceFormatted: formatPrice(item.price, lang)
+    };
+    if (ORDER_ENABLED) product.orderUrl = buildTelegramUrl(product, lang);
+    return product;
+}
+
+function renderAll(lang) {
+    document.getElementById("candlesContainer").innerHTML = "";
+    document.getElementById("diffusersContainer").innerHTML = "";
+    document.getElementById("aromasContainer").innerHTML = "";
+    document.getElementById("liquidsContainer").innerHTML = "";
+
+    renderCategory(
+        (productsRaw.candles || []).map(p => localizeProduct(p, lang)),
+        "candlesContainer"
+    );
+    renderCategory(
+        (productsRaw.diffusers || []).map(p => localizeProduct(p, lang)),
+        "diffusersContainer"
+    );
+    renderCategory(
+        (productsRaw.aromas || []).map(p => localizeProduct(p, lang)),
+        "aromasContainer"
+    );
+    renderCategory(
+        (productsRaw.liquids || []).map(p => localizeProduct(p, lang)),
+        "liquidsContainer"
+    );
+
+    applyUiLang(lang);
+}
+
+async function loadProducts() {
+    const [manifest, ui] = await Promise.all([
+        fetch("products/manifest.json").then(res => res.json()),
+        fetch("products/ui.json").then(res => res.json())
+    ]);
+    uiStrings = ui;
+    productsRaw = {};
+
+    for (const category of CATEGORIES) {
+        const paths = manifest[category] || [];
+        productsRaw[category] = await Promise.all(
+            paths.map(path =>
+                fetch(`products/${path}`).then(res => res.json())
+            )
+        );
+    }
+
+    renderAll(currentLang);
+}
+
+function setLang(lang) {
+    currentLang = lang;
+    document.getElementById("currentLang").innerText = lang.toUpperCase();
+    const modalOpen = productModal.classList.contains("active");
+    renderAll(lang);
+    if (modalOpen && currentModalId) {
+        const p = findLocalizedProduct(currentModalId);
+        if (p) fillModal(p);
+    }
+    localStorage.setItem("lang", lang);
+}
+
+// ===== RENDER =====
+function renderCategory(items, containerId) {
+
+    const container = document.getElementById(containerId);
+
+    items.forEach(item => {
+
+        const card = document.createElement("div");
+        card.className = "gallery-item-wrapper";
+        card.onclick = () => openModal(item);
+
+        card.innerHTML = `
+            <div class="gallery-item">
+                <img src="${item.image}" alt="${item.title}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${IMAGE_FALLBACK}'">
+                <span class="gallery-price">${item.priceFormatted}</span>
+                <div class="hover-description">${item.short}</div>
+            </div>
+            <div class="caption">
+                <span class="caption-title">${item.title}</span>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+// ===== MODAL =====
+const productModal = document.getElementById("productModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalShort = document.getElementById("modalShort");
+const modalDescription = document.getElementById("modalDescription");
+const modalPrice = document.getElementById("modalPrice");
+const modalOrderBtn = document.getElementById("modalOrderBtn");
+const modalOrderText = document.getElementById("modalOrderText");
+const modalOrderHint = document.getElementById("modalOrderHint");
+
+let scrollY = 0;
+let currentModalId = null;
+
+function findLocalizedProduct(id) {
+    for (const category of CATEGORIES) {
+        const found = (productsRaw[category] || []).find(p => p.id === id);
+        if (found) return localizeProduct(found, currentLang);
+    }
+    return null;
+}
+
+function fillModal(product) {
+    modalTitle.textContent = product.title;
+    modalShort.textContent = product.short;
+    modalDescription.textContent = product.desc;
+    modalImage.onerror = () => {
+        modalImage.onerror = null;
+        modalImage.src = IMAGE_FALLBACK;
+    };
+    modalImage.src = product.image;
+    modalImage.alt = product.title;
+    modalPrice.textContent = product.priceFormatted;
+    const t = uiStrings[currentLang] || {};
+    modalOrderText.textContent = t.order || "Заказать";
+    modalOrderHint.textContent = t.orderSoon || "Скоро";
+    modalOrderBtn.disabled = !ORDER_ENABLED;
+    modalOrderBtn.classList.toggle("is-active", ORDER_ENABLED);
+    modalOrderBtn.onclick = ORDER_ENABLED && product.orderUrl
+        ? () => window.open(product.orderUrl, "_blank", "noopener,noreferrer")
+        : null;
+}
+
+function openModal(product) {
+    currentModalId = product.id;
+    fillModal(product);
+
+    productModal.classList.add("active");
+    productModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+}
+
+function closeModal() {
+    if (!productModal.classList.contains("active")) return;
+
+    productModal.classList.remove("active");
+    productModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    currentModalId = null;
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, scrollY);
+}
+
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+});
+// ===== SCROLL =====
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({behavior: "smooth"});
+}
+
+function scrollToTop() {
+    window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+// ===== ANIMATION =====
+const revealObserver = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    },
+    { rootMargin: "0px 0px -80px 0px", threshold: 0.05 }
+);
+
+document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+// ===== MOBILE MENU (tap) =====
+function setupMobileNav() {
+    const menu = document.querySelector(".menu");
+    const lang = document.querySelector(".lang");
+    const isTouch = () => window.matchMedia("(hover: none)").matches;
+
+    function closeAll() {
+        menu.classList.remove("open");
+        lang.classList.remove("open");
+    }
+
+    menu.addEventListener("click", e => {
+        if (!isTouch()) return;
+        e.stopPropagation();
+        lang.classList.remove("open");
+        menu.classList.toggle("open");
+    });
+
+    lang.addEventListener("click", e => {
+        if (!isTouch()) return;
+        e.stopPropagation();
+        menu.classList.remove("open");
+        lang.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".dropdown div").forEach(item => {
+        item.addEventListener("click", closeAll);
+    });
+
+    document.addEventListener("click", closeAll);
+}
+
+setupMobileNav();
+
+// ===== INIT =====
+window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+
+    const savedLang = localStorage.getItem("lang") || "ru";
+    currentLang = savedLang;
+
+    document.getElementById("currentLang").innerText = savedLang.toUpperCase();
+
+    loadProducts();
+});
+
+</script>
+</body>
+</html>

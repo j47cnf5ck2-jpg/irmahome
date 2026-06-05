@@ -1,0 +1,15 @@
+{
+  "id": "candle-vanilla",
+  "image": "images/candles/vanilla.jpg",
+  "price": 890,
+  "ru": {
+    "title": "Свеча Ваниль",
+    "short": "Натуральный соевый воск",
+    "desc": "Сладкий аромат ванили"
+  },
+  "en": {
+    "title": "Vanilla Candle",
+    "short": "Natural soy wax",
+    "desc": "Sweet vanilla fragrance"
+  }
+}

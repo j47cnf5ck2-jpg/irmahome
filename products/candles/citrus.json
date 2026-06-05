@@ -1,0 +1,15 @@
+{
+  "id": "candle-citrus",
+  "image": "images/candles/citrus.jpg",
+  "price": 870,
+  "ru": {
+    "title": "Свеча Цитрус",
+    "short": "Свежий бодрящий аромат",
+    "desc": "Апельсин и лимон — лёгкое настроение для кухни и рабочего места"
+  },
+  "en": {
+    "title": "Citrus Candle",
+    "short": "Fresh uplifting scent",
+    "desc": "Orange and lemon notes — a bright mood for kitchen and workspace"
+  }
+}

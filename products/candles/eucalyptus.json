@@ -1,0 +1,15 @@
+{
+  "id": "candle-eucalyptus",
+  "image": "images/candles/eucalyptus.jpg",
+  "price": 880,
+  "ru": {
+    "title": "Свеча Эвкалипт",
+    "short": "Свежий травяной аромат",
+    "desc": "Прохладный эвкалипт очищает воздух и помогает сосредоточиться"
+  },
+  "en": {
+    "title": "Eucalyptus Candle",
+    "short": "Fresh herbal scent",
+    "desc": "Cool eucalyptus clears the air and helps you focus"
+  }
+}

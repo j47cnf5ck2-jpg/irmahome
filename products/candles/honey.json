@@ -1,0 +1,15 @@
+{
+  "id": "candle-honey",
+  "image": "images/candles/honey.jpg",
+  "price": 900,
+  "ru": {
+    "title": "Свеча Мёд и молоко",
+    "short": "Мягкий сладкий аромат",
+    "desc": "Тёплый мёд с нотами ванили — как уютный вечер дома"
+  },
+  "en": {
+    "title": "Honey & Milk Candle",
+    "short": "Soft sweet scent",
+    "desc": "Warm honey with vanilla notes — like a cozy evening at home"
+  }
+}
